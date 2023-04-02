@@ -57,7 +57,7 @@ elif [[ ! -f $sourceFile ]]; then
     echo "no source for input found"
     exit 1
 else
-    mkdir ./logfiles
+    mkdir -p ./logfiles
 
     docker build -f Dockerfile_UAWrapper -t ultimate-wrapper .
     docker run \
