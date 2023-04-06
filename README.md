@@ -13,7 +13,7 @@ The purpose of the container made from this image is to wrap Ultimate Automizer 
 ```bash
 #!/bin/bash
 ./ultimate_wrapper.sh \
-    -s ultimate-automizer_settings.epl \
+    -s ultimate-automizer_settings.epf \
     -tc ultimate-automizer_toolchain.xml \
     -i program.c
 ```

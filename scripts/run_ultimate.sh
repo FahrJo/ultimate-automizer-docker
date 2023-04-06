@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # look for input files
-settingFile=$(find userfiles/*.epl)
+settingFile=$(find -E userfiles -regex ".*\.(epl|epf)")
 toolchainFile=$(find userfiles/*.xml)
 sourceFile=$(find userfiles/*.c)
 
