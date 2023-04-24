@@ -14,5 +14,7 @@ RUN unzip UltimateAutomizer-linux.zip && mv UAutomizer-linux/* . && \
 COPY scripts/run_ultimate.sh ./
 RUN chmod +x run_ultimate.sh&& \
     # make directories for certain files
-    mkdir ./userfiles && mkdir ./logfiles
+    mkdir ./userfiles && mkdir ./logfiles && mkdir ./csvfiles \
+    # create dummy file to check if directory was mapped
+    touch csvfiles/dockerLocalFile
 CMD ["./run_ultimate.sh"]

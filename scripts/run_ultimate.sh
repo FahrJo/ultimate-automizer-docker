@@ -4,19 +4,41 @@
 settingFile=$(find userfiles/*.epf)
 toolchainFile=$(find userfiles/*.xml)
 sourceFile=$(find userfiles/*.c)
+csvDir=$(find csvfiles/dockerLocalFile)
 
-if [[ ! -f $settingFile ]]; then
-    echo "no settings found"
-    exit 1
-elif [[ ! -f $toolchainFile ]]; then
-    echo "no toolchain definition found"
-    exit 1
-elif [[ ! -f $sourceFile ]]; then
-    echo "no source for input found"
-    exit 1
+fileArguments=""
+
+if [[ -f $settingFile ]]; then
+    fileArguments+="-s ${settingFile} "
 else
-    timestamp=$(date +%y%m%d_%H%M%S%Z)
-    # Execute Ultimate and save output to logfile
-    echo "start ultimate..."
-    ./Ultimate -tc $toolchainFile -s $settingFile -i $sourceFile | tee logfiles/"$timestamp"_ultimate.log
+    echo "No settings found"
 fi
+
+if [[ -f $toolchainFile ]]; then
+    fileArguments+="-tc ${toolchainFile} "
+else
+    echo "No toolchain definition found"
+fi
+
+if [[ -f $sourceFile ]]; then
+    fileArguments+="-i ${sourceFile} "
+else
+    echo "No source for input found"
+fi
+
+if [[ -e $csvDir ]]; then
+    echo "CSV directory not defined"
+else
+    fileArguments+="--csv-dir csvfiles/ "
+fi
+
+timestamp=$(date +%y%m%d_%H%M%S%Z)
+logfileName="logfiles/${timestamp}_ultimate.log"
+
+# Execute Ultimate and save output to logfile
+echo "+-------------------+"
+echo "| Start ultimate... |"
+echo "+-------------------+"
+echo "Logfile: ${logfileName}"
+echo "./Ultimate $OTHER_ARGUMENTS $fileArguments"
+./Ultimate $OTHER_ARGUMENTS $fileArguments | tee $logfileName
