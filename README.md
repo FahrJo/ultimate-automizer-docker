@@ -18,6 +18,18 @@ The purpose of the container made from this image is to wrap Ultimate Automizer 
     -i program.c
 ```
 
-## Dockerfile_UABackend
+## Dockerfile_UAWebsite
 
-*TODO: host the HTTP backend of Ultimate inside a docker container*
+This container hosts the front- and backend of Ultimate.
+
+**Example use:**
+
+```bash
+# Build immage
+docker build -f Dockerfile_UAWebsite -t ultimate-backend .
+# Run image and map port
+docker run -p 80:8080 ultimate-backend
+```
+
+By default, the frontend can be accessed under <http://localhost/website/> and the backend is made
+available under <http://localhost/api/>
