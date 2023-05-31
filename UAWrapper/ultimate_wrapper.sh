@@ -82,5 +82,5 @@ do
 done
 
 # Build and execute Ultimate inside a container
-docker build -f Dockerfile_UAWrapper -t ultimate-wrapper .
+docker build -t ultimate-wrapper .
 docker run $mountArguments --env OTHER_ARGUMENTS="$otherArguments" --rm ultimate-wrapper #/bin/bash

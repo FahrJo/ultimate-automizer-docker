@@ -26,9 +26,9 @@ This container hosts the front- and backend of Ultimate.
 
 ```bash
 # Build immage
-docker build -f Dockerfile_UAWebsite -t ultimate-backend .
+docker build -t ultimate-backend .
 # Run image and map port
-docker run -p 80:8080 ultimate-backend
+docker run -p 80:8080 ultimate-backendcd 
 ```
 
 By default, the frontend can be accessed under <http://localhost/website/> and the backend is made
