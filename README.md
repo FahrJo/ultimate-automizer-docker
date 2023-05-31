@@ -27,7 +27,7 @@ This container hosts the front- and backend of Ultimate.
 ```bash
 # Build image
 docker build -t ultimate-backend .
-# Run image and map port
+# Run container and map port
 docker run -p 80:80 ultimate-backend 
 ```
 
