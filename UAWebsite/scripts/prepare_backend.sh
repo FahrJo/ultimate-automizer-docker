@@ -6,6 +6,7 @@ cd $SCRIPT_DIR
 cp web.config.properties.dist web.config.properties
 cp settings_whitelist.json.dist settings_whitelist.json
 sed -i '/-DWebBackend.SETTINGS_FILE=/c\-DWebBackend.SETTINGS_FILE=/opt/Ultimate/WebBackend/web.config.properties' WebBackend.ini
+sed -i '/PORT=/c\PORT=80' web.config.properties
 sed -i '/SETTINGS_WHITELIST=/c\SETTINGS_WHITELIST=/opt/Ultimate/WebBackend/settings_whitelist.json' web.config.properties
 sed -i '/FRONTEND_PATH=/c\FRONTEND_PATH=/opt/Ultimate/WebsiteStatic' web.config.properties 
 sed -i '/LOG_FILE_PATH=/c\LOG_FILE_PATH=/opt/Ultimate/log/logfile.log' web.config.properties

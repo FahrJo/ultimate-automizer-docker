@@ -14,4 +14,5 @@ COPY scripts/prepare_backend.sh WebBackend/
 COPY scripts/prepare_frontend.sh WebsiteStatic/
 RUN /bin/bash WebBackend/prepare_backend.sh
 RUN /bin/bash WebsiteStatic/prepare_frontend.sh
+EXPOSE 80
 CMD ["WebBackend/WebBackend"]
